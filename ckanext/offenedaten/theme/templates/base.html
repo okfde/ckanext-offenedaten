@@ -2,8 +2,6 @@
 
 {% block styles %}
   {{ super() }}
-  {% resource 'ckanext-offenedaten/vendor/leaflet/leaflet.css' %}
-  {#{% resource 'ckanext-offenedaten/vendor/leaflet/leaflet.ie.css' %}#}
   {% resource 'ckanext-offenedaten/styles/offenedaten.css' %}
 {% endblock %}
 
@@ -11,5 +9,4 @@
   {{ super() }}
   {% resource 'ckanext-offenedaten/vendor/leaflet/leaflet.js' %}
   {% resource 'ckanext-offenedaten/vendor/jquery.color.js' %}
-  {% resource 'ckanext-offenedaten/scripts/euromap.js' %}
 {% endblock %}

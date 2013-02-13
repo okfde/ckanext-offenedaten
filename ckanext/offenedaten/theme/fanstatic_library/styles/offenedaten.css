@@ -80,54 +80,6 @@ body,
 .ckan-icon-rdfxml {
   background-image: url(/images/rdf.png);
 }
-#map {
-  width: 940px;
-  height: 500px;
-}
-#map.homepage {
-  float: left;
-  width: 500px;
-  height: 300px;
-  margin-bottom: 20px;
-  background-color: transparent;
-}
-.leaflet-popup-content {
-  padding: 0.2em;
-}
-.leaflet-popup-content .name {
-  font-weight: bold;
-}
-.leaflet-popup-content .local_name {
-  font-style: italic;
-  border-bottom: 1px solid #E3E3E3;
-}
-.leaflet-popup-content .datasets {
-  margin-top: 0.5em;
-}
-#view-map {
-  position: absolute;
-  right: 20px;
-  bottom: 0;
-  color: #FFF;
-  font-weight: bold;
-}
-.map-wrapper h1 {
-  color: #000;
-}
-.map-wrapper #map {
-  background: #bbbbbb url('/images/texture.png');
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  margin: 20px 0;
-}
-.map-wrapper .well {
-  background: #dddddd url('/images/texture.png');
-  border-width: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
 .hero {
   padding: 20px 0;
   background: #223a67 url('/images/texture.png');
