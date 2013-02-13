@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-// This file is only used to generate the pdeu.css within public/css/ and 
+// This file is only used to generate the offenedaten.css within public/css/ and 
 // is for use if the less sheets need updating. In order to run this file:
-// 1. cd ckanext/pdeu/theme/
+// 1. cd ckanext/offenedaten/theme/
 // 2. npm install less
 // 3. npm install nodewatch
 // 4. (optional but recommended) add node_modules to .git/info/exclude (to ignore locally only)
@@ -20,7 +20,7 @@ function now() {
 function compile(event, filename) {
   var start = Date.now();
 
-  exec('`npm bin`/lessc ' + __dirname + '/fanstatic_library/styles/pdeu.less > ' + __dirname + '/fanstatic_library/styles/pdeu.css', function (err, stdout, stderr) {
+  exec('`npm bin`/lessc ' + __dirname + '/fanstatic_library/styles/offenedaten.less > ' + __dirname + '/fanstatic_library/styles/offenedaten.css', function (err, stdout, stderr) {
     var duration = Date.now() - start;
 
     if (err) {

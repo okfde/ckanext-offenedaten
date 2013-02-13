@@ -35,10 +35,10 @@ class SubscribeController(BaseController):
         Stores the email address provided by the user in a Google Docs
         Spreadsheet. The spreadsheet connection parameters must be defined
         in the configuration file:
-            * pdeu.gdocs.username
-            * pdeu.gdocs.password
-            * pdeu.gdocs.dockey
-            * pdeu.gdocs.sheet [Optional, defaults to 'Sheet1'
+            * offenedaten.gdocs.username
+            * offenedaten.gdocs.password
+            * offenedaten.gdocs.dockey
+            * offenedaten.gdocs.sheet [Optional, defaults to 'Sheet1'
 
         The spreadhsheet must have two header fields named 'email' and
         'signedup'
@@ -48,10 +48,10 @@ class SubscribeController(BaseController):
         super(SubscribeController, self).__before__(self)
 
         # Check Google Docs parameters
-        username = config.get('pdeu.gdocs.username', None)
-        password = config.get('pdeu.gdocs.password', None)
-        dockey = config.get('pdeu.gdocs.dockey', None)
-        sheet = config.get('pdeu.gdocs.sheet', 'Sheet1')
+        username = config.get('offenedaten.gdocs.username', None)
+        password = config.get('offenedaten.gdocs.password', None)
+        dockey = config.get('offenedaten.gdocs.dockey', None)
+        sheet = config.get('offenedaten.gdocs.sheet', 'Sheet1')
 
         if not username or not password or not dockey:
             log.error('Google Docs connection settings not specified')
@@ -78,9 +78,9 @@ class SubscribeController(BaseController):
 class MapController(BaseController):
 
     def _get_config(self):
-        c.startColor = config.get('pdeu.map.start_color', '#FFFFFF')
-        c.endColor = config.get('pdeu.map.end_color', '#045A8D')
-        c.num_groups = config.get('pdeu.map.groups', 5)
+        c.startColor = config.get('offenedaten.map.start_color', '#FFFFFF')
+        c.endColor = config.get('offenedaten.map.end_color', '#045A8D')
+        c.num_groups = config.get('offenedaten.map.groups', 5)
 
     def index(self):
         self._get_config()
@@ -124,7 +124,7 @@ class MapController(BaseController):
     def data(self):
         # Get the Europe dataset
         rootdir = get_root_dir()
-        data_file = os.path.join(rootdir, 'ckanext', 'pdeu', 'data', 'eu.json')
+        data_file = os.path.join(rootdir, 'ckanext', 'offenedaten', 'data', 'eu.json')
         f = open(data_file, 'r')
         o = json.load(f)
 

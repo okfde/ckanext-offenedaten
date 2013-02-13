@@ -7,7 +7,7 @@ import ckan.plugins.toolkit as toolkit
 import countries
 
 
-class PDEUCustomizations(plugins.SingletonPlugin):
+class OffeneDatenCustomizations(plugins.SingletonPlugin):
     plugins.implements(plugins.IRoutes)
     plugins.implements(plugins.IConfigurer, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
@@ -31,16 +31,16 @@ class PDEUCustomizations(plugins.SingletonPlugin):
         here = os.path.dirname(__file__)
         rootdir = os.path.dirname(os.path.dirname(here))
 
-        our_public_dir = os.path.join(rootdir, 'ckanext', 'pdeu', 'theme',
+        our_public_dir = os.path.join(rootdir, 'ckanext', 'offenedaten', 'theme',
                 'public')
-        template_dir = os.path.join(rootdir, 'ckanext', 'pdeu', 'theme',
+        template_dir = os.path.join(rootdir, 'ckanext', 'offenedaten', 'theme',
                 'templates')
         config['extra_public_paths'] = ','.join([our_public_dir,
                 config.get('extra_public_paths', '')])
         config['extra_template_paths'] = ','.join([template_dir,
                 config.get('extra_template_paths', '')])
-        config['ckan.site_logo'] = '/images/pdeu_logo.png'
-        config['ckan.favicon'] = '/images/pdeu_favicon.ico'
+        config['ckan.site_logo'] = '/images/offenedaten_logo.png'
+        config['ckan.favicon'] = '/images/offenedaten_favicon.ico'
 
         config['package_hide_extras'] = ' '.join(['eu_country',
                     'harvest_catalogue_name',
@@ -49,20 +49,20 @@ class PDEUCustomizations(plugins.SingletonPlugin):
         config['search.facets'] = 'groups tags extras_eu_country res_format'
         config['search.facets.extras_eu_country.title'] = 'Country'
         config['search.facets.res_format.title'] = 'File Formats'
-        toolkit.add_resource('theme/fanstatic_library', 'ckanext-pdeu')
+        toolkit.add_resource('theme/fanstatic_library', 'ckanext-offenedaten')
 
     def before_map(self, route_map):
-        wire_controller = 'ckanext.pdeu.controllers:RewiringController'
+        wire_controller = 'ckanext.offenedaten.controllers:RewiringController'
         route_map.connect('/tag/{tags}', controller=wire_controller,
                           action='tag')
 
-        subscribe_controller = 'ckanext.pdeu.controllers:SubscribeController'
+        subscribe_controller = 'ckanext.offenedaten.controllers:SubscribeController'
         route_map.connect('/subscribe',
                           controller=subscribe_controller,
                           conditions=dict(method=['POST']),
                           action='send')
 
-        map_controller = 'ckanext.pdeu.controllers:MapController'
+        map_controller = 'ckanext.offenedaten.controllers:MapController'
         route_map.connect('/', controller=map_controller, action='index')
         route_map.connect('/map', controller=map_controller, action='show')
         route_map.connect('/map/data.json', controller=map_controller,

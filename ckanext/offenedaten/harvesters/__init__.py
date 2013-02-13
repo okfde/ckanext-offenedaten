@@ -1,5 +1,5 @@
 
-from pdeuckan import PDEUCKANHarvester
+from offenedatenckan import offenedatenCKANHarvester
 from data_publica import DataPublicaHarvester
 from opengov_se import OpenGovSeHarvester
 from london import DataLondonGovUkHarvester

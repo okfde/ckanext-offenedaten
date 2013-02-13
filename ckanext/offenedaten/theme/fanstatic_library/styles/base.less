@@ -1,0 +1,20 @@
+// Hides white border
+.main,
+[role="main"] {
+	background-image: url(@offenedatenTextureImage);
+	&::after,
+	&::before {
+		display: none;
+	}
+}
+
+a {
+	color: @offenedatenColorPrimary;
+}
+
+.btn-primary {
+	background: @offenedatenColorPrimary !important;
+	&:hover {
+		background: darken(@offenedatenColorPrimary, 10) !important;
+	}
+}
