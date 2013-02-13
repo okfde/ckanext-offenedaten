@@ -1,12 +1,1 @@
-
-from offenedatenckan import offenedatenCKANHarvester
-from data_publica import DataPublicaHarvester
-from opengov_se import OpenGovSeHarvester
-from london import DataLondonGovUkHarvester
-from vienna import DataWienGvAtHarvester
-from paris import OpendataParisFrHarvester
-from digitaliser_dk import DigitaliserDkHarvester
-from piemonte import DatiPiemonteItHarvester
-from opendata_cat import OpenDataCatHarvester
-from berlin import BerlinCKANHarvester
-
+from govdata import govdataCKANHarvester
