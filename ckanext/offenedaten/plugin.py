@@ -4,14 +4,11 @@ import re
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
-import countries
-
 
 class OffeneDatenCustomizations(plugins.SingletonPlugin):
     plugins.implements(plugins.IRoutes)
     plugins.implements(plugins.IConfigurer, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
-    plugins.implements(plugins.ITemplateHelpers)
 
     def before_index(self, dataset_dict):
 
@@ -39,8 +36,8 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
                 config.get('extra_public_paths', '')])
         config['extra_template_paths'] = ','.join([template_dir,
                 config.get('extra_template_paths', '')])
-        config['ckan.site_logo'] = '/images/offenedaten_logo.png'
-        config['ckan.favicon'] = '/images/offenedaten_favicon.ico'
+        config['ckan.site_logo'] = '/images/logo.png'
+        config['ckan.favicon'] = '/images/favicon.ico'
 
         config['package_hide_extras'] = ' '.join(['eu_country',
                     'harvest_catalogue_name',
@@ -88,6 +85,3 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
         except TypeError:
             # FIXME: Why are we silencing TypeError here?
             pass
-
-    def get_helpers(self):
-        return {'code_to_country': countries.code_to_country}
