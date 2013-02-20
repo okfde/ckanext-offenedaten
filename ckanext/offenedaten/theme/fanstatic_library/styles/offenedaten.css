@@ -9,45 +9,45 @@
   display: none;
 }
 a {
-  color: #1f5d78;
+  color: #008ee6;
 }
 .btn-primary {
-  background: #1f5d78 !important;
+  background: #008ee6 !important;
 }
 .btn-primary:hover {
-  background: #153e4f !important;
+  background: #006fb3 !important;
 }
 header.masthead {
-  background: #1f5d78 url('/images/texture.png');
+  background: #008ee6 url('/images/texture.png');
 }
 header.masthead .site-search input {
-  border-color: #000000;
+  border-color: #00304d;
 }
 header.masthead .dropdown-menu li a {
-  color: #1f5d78;
+  color: #008ee6;
 }
 header.masthead .dropdown-menu li a:hover {
-  background-color: #1f5d78;
+  background-color: #008ee6;
 }
 header.masthead .navigation ul.unstyled li.active a {
-  background: #153e4f url('/images/texture.png');
-  -webkit-box-shadow: inset 0 2px 4px #0a1e27;
-  -moz-box-shadow: inset 0 2px 4px #0a1e27;
-  box-shadow: inset 0 2px 4px #0a1e27;
+  background: #006fb3 url('/images/texture.png');
+  -webkit-box-shadow: inset 0 2px 4px #004f80;
+  -moz-box-shadow: inset 0 2px 4px #004f80;
+  box-shadow: inset 0 2px 4px #004f80;
 }
 header.masthead .account {
-  background: #153e4f url('/images/texture.png');
+  background: #006fb3 url('/images/texture.png');
 }
 header.masthead .account .button {
-  background-color: #246d8c;
+  background-color: #009eff;
 }
 header.masthead .account .open .button,
 header.masthead .account .button:hover {
-  background-color: #349cc9 !important;
+  background-color: #4dbbff !important;
 }
 body,
 .site-footer {
-  background: #153e4f url('/images/texture.png');
+  background: #006fb3 url('/images/texture.png');
 }
 .ckan-icon-json,
 .ckan-icon-rdfxml {
@@ -63,16 +63,16 @@ body,
 }
 .hero {
   padding: 20px 0;
-  background: #153e4f url('/images/texture.png');
+  background: #006fb3 url('/images/texture.png');
 }
 .hero .module-dark {
-  background: #1f5d78 url('/images/texture.png');
+  background: #008ee6 url('/images/texture.png');
 }
 .hero .module-dark .module-content {
   background: transparent;
 }
 .hero .search-giant input {
-  border-color: #0a1e27;
+  border-color: #004f80;
 }
 .hero-primary {
   width: 100%;
@@ -96,9 +96,9 @@ body,
   -moz-border-radius: 100px;
   border-radius: 100px;
   background: #eeeeee url('/images/texture.png');
-  -webkit-box-shadow: 0 1px 2px #0a1e27;
-  -moz-box-shadow: 0 1px 2px #0a1e27;
-  box-shadow: 0 1px 2px #0a1e27;
+  -webkit-box-shadow: 0 1px 2px #004f80;
+  -moz-box-shadow: 0 1px 2px #004f80;
+  box-shadow: 0 1px 2px #004f80;
 }
 .search-box .facets li a:hover {
   background-color: white;
@@ -183,9 +183,9 @@ body,
   left: 178px;
   text-indent: 0;
   text-transform: uppercase;
-  -webkit-box-shadow: 0 0 1px #153e4f;
-  -moz-box-shadow: 0 0 1px #153e4f;
-  box-shadow: 0 0 1px #153e4f;
+  -webkit-box-shadow: 0 0 1px #006fb3;
+  -moz-box-shadow: 0 0 1px #006fb3;
+  box-shadow: 0 0 1px #006fb3;
 }
 .attribution p {
   float: left;
@@ -205,8 +205,8 @@ body,
 .ie9 .masthead nav ul li a.active,
 .ie8 .masthead nav ul li a.active,
 .ie7 .masthead nav ul li a.active {
-  background-color: #153e4f;
-  border-bottom-color: #246d8c;
+  background-color: #006fb3;
+  border-bottom-color: #009eff;
 }
 .ie8 .main:after,
 .ie7 .main:after,
