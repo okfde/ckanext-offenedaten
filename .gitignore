@@ -2,3 +2,4 @@
 *.egg-info
 data
 sstore
+node_modules
