@@ -36,7 +36,8 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
                 config.get('extra_public_paths', '')])
         config['extra_template_paths'] = ','.join([template_dir,
                 config.get('extra_template_paths', '')])
-        config['ckan.site_logo'] = '/images/logo.png'
+        config['ckan.site_logo'] = ''
+        config['ckan.site_title'] = 'OffeneDaten.de'
         config['ckan.favicon'] = '/images/favicon.ico'
 
         config['package_hide_extras'] = ' '.join(['eu_country',
