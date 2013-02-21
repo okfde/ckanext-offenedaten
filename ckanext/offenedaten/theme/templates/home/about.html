@@ -1,20 +1,20 @@
 {% ckan_extends %}
 
 {% block breadcrumb_content %}
-  <li class="active"><a href="#">About {{ g.site_title }}</a></li>
+  <li class="active"><a href="#">Über {{ g.site_title }}</a></li>
 {% endblock %}
 
 {% block actions_content %}
-  <li><a href="mailto:info@okfn.de" class="btn"><i class="icon-envelope"></i> Contact Us</a></li>
-  <li><a href="http://github.com/okfde/ckanext-offenedaten" target="_blank" class="btn"><i class="icon-github"></i> Source Code</a></li>
+  <li><a href="mailto:info@offenedaten.de.de" class="btn"><i class="icon-envelope"></i> Kontakt</a></li>
+  <li><a href="http://github.com/okfde/ckanext-offenedaten" target="_blank" class="btn"><i class="icon-github"></i> Quelltext</a></li>
 {% endblock %}
 
 {% block primary %}
   <article class="module about">
     <header class="module-content page-header">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#about" data-toggle="tab">Overview</a></li>
-        <li><a href="#vision" data-toggle="tab">The vision</a></li>
+        <li class="active"><a href="#about" data-toggle="tab">Über</a></li>
+        <!-- <li><a href="#mitarbeit" data-toggle="tab">Mithelfen</a></li> -->
       </ul>
     </header>
 
@@ -23,37 +23,40 @@
         <div class="span8 tab-content">
 
           <div class="tab-pane active" id="about">
-            <h2>What is {{ g.site_title }}?</h2>
+            <h2>Was ist OffeneDaten.de</h2>
             <p class="lead">
-              {{ g.site_title }} German open data portal, providing access to open, freely reusable datasets ranging from governmental data to data about public libraries.
+              OffeneDaten.de ist ein Datenkatalog für offene Daten in Deutschland. Die Seite wurde 2010 von engagierten Bürgern initiiert, weil es bis Dato kein vergleichbares Angebot in Deutschland gab.
             </p>
 
-            <h3>Would you like your data to be included in {{ g.site_title }}?</h3>
-            <p>If you would like your data to be added to {{ g.site_title }}, please <a href="mailto:info@okfn.de">contact us</a> with the details of your data.
+            <p>Die Seite wird heute von der Open Knowledge Foundation Deutschland mit dem Zweck betrieben ein unabhängiges und umfassendes Datenangebot anzubieten, in dem sowohl Daten der Öffentlichen Verwaltung als auch Daten aus anderen Wissensdomainen, aus Wissenschaft und Forschung oder der Privatwirtschaft sowie von Bürgern erzeugte Daten (Crowdsourcing) zu finden sind.</p>
 
-            <p><small>Bild auf der Startseite, CC-BY, &copy; <a href="https://commons.wikimedia.org/wiki/File:5_56_49_am_.....a_ship.jpg">Wikimedia Commons</a></small></p>
+            <p>Das Portal basiert auf der aktuellen Entwickler-Version von <a href="http://ckan.org/">CKAN</a> und dient damit auch als Experimentierfeld für neue Features. OffeneDaten.de ist mit ehrenamtlicher Arbeit und ohne Budget innerhalb weniger Tage entstanden. Die gesamte Seite ist <a href="https://github.com/okfde/ckanext-offenedaten">freie Software/Open Source</a> und <a href="https://github.com/okfde/ckanext-offenedaten/issues">wir freuen uns über Feedback</a>.</p>
+            <h2 id="mitarbeit">Wie kann ich bei {{ g.site_title }} mithelfen?</h2>
+            <p class="lead">OffeneDaten.de wird von der Open-Data-Community in Deutschland kuratiert.</p>
+            <p>Wir brauchen deine Hilfe bei folgenden Aufgaben:</p>
+            <ul>
+              <li>Datensätze mit verschwundenen Daten entfernen.</li>
+              <li>Datensätze mit nicht-offenen Lizenzen mit "nicht-offen" taggen.</li>
+              <li>Datensätze, die nicht maschinenlesbar sind müssen getaggt und ggf. aufbereitet werden.</li>
+              <li>Neue offene Datensätze können eingetragen werden.</li>
+            </ul>
+            <p>Mehr Details folgen...</p>
+            <hr/>
+            <p><small><a href="https://secure.flickr.com/photos/53074617@N00/2457315858/">Bild auf der Startseite</a> von <a href="http://www.flickr.com/people/53074617@N00">Wolfgang Staudt</a> unter <a href="http://creativecommons.org/licenses/by/2.0/deed.en">CC-BY</a>.</small></p>
 
-          </div>
-
-          <div class="tab-pane" id="vision">
-            <h2>What is the vision behind {{ g.site_title }}?</h2>
           </div>
 
         </div>
 
         <aside class="span3">
 
-          <p><a href="http://okfn.org" target="_blank"><img src="http://m.okfn.org/images/logo/logo_fullname_medium.png" height="50"></a></p>
+          <p><a href="http://okfn.org" target="_blank"><img src="/images/logo_fullname_medium.png" height="50"></a></p>
 
-          <p>{{ g.site_title }} is developed by the <a href="http://okfn.de" target="_blank">Open Knowledge Foundation Deutschland</a>.</p>
+          <p>{{ g.site_title }} wird von der <a href="http://okfn.de" target="_blank">Open Knowledge Foundation Deutschland</a> betrieben.</p>
 
-          <p>{{ g.site_title }} is powered by <a href="http://ckan.org" target="_blank">CKAN</a>, a data
-          catalogue system used by various institutions and communities to manage open
-          data. CKAN and all its components are open source software and used by a wide
-          community of catalogue operators from across Europe, including the UK
-          Government's data.gov.uk portal. CKAN is developed by the <a href="http://okfn.de" target="_blank">Open Knowledge Foundation</a>, a UK based non profit</p>
+          <p>Die Software hinter{{ g.site_title }} ist <a href="http://ckan.org" target="_blank">CKAN</a>, eine Datenkatalog-Software, das von vielen Ländern und Organisationen genutzt wird, um offene Daten zu verwalten. CKAN und alle Komponenten sind Open Source Software. CKAN wird z.B. auch vom Datenportal der britischen Regierung data.gov.uk verwendet.</p>
 
-          <p><a href="http://ckan.org/" target="_blank"><img src="http://assets.okfn.org/p/ckan/img/ckan_logo_shortname.png" height="50"></a></p>
+          <p><a href="http://ckan.org/" target="_blank"><img src="/images/ckan_logo_shortname.png" height="50"></a></p>
 
         </aside>
 
