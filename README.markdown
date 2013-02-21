@@ -29,3 +29,7 @@ Custom CKAN extension for [offenedaten.de](http://offenedaten.de/)
 Note on CKAN versions: at the time of writing the `master` branch of
 ckanext-offenedaten is intended to work with CKAN 2.0 (currently the `master` branch
 of ckan).
+
+## Edit the style
+
+After editing the less files, they need to be recompiled. This can be done by calling `offenedaten/theme/less`.
