@@ -28,7 +28,6 @@
 {% endblock %}
 
 {% block secondary_content %}
-
   <div class="showcase">
     <h1>Warum ein Daten-Portal der Open Data Community?</h2>
     <div class="featured-apps">
@@ -39,4 +38,9 @@
       {% snippet "home/snippets/catalogs.html" %}
     </div>
   </div>
+{% endblock %}
+
+{% block footer_attribution %}
+  {{ super() }}
+  <p><small>'Main image, CC-BY, &copy; <a href="https://commons.wikimedia.org/wiki/File:5_56_49_am_.....a_ship.jpg">Wikimedia Commons</a></small></p>
 {% endblock %}
