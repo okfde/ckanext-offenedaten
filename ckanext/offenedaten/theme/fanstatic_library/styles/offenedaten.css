@@ -9,45 +9,45 @@
   display: none;
 }
 a {
-  color: #008ee6;
+  color: #006fb3;
 }
 .btn-primary {
-  background: #008ee6 !important;
-}
-.btn-primary:hover {
   background: #006fb3 !important;
 }
+.btn-primary:hover {
+  background: #004f80 !important;
+}
 header.masthead {
-  background: #008ee6 url('/images/texture.png');
+  background: #006fb3 url('/images/texture.png');
 }
 header.masthead .site-search input {
-  border-color: #00304d;
+  border-color: #00101a;
 }
 header.masthead .dropdown-menu li a {
-  color: #008ee6;
+  color: #006fb3;
 }
 header.masthead .dropdown-menu li a:hover {
-  background-color: #008ee6;
+  background-color: #006fb3;
 }
 header.masthead .navigation ul.unstyled li.active a {
-  background: #006fb3 url('/images/texture.png');
-  -webkit-box-shadow: inset 0 2px 4px #004f80;
-  -moz-box-shadow: inset 0 2px 4px #004f80;
-  box-shadow: inset 0 2px 4px #004f80;
+  background: #004f80 url('/images/texture.png');
+  -webkit-box-shadow: inset 0 2px 4px #00304d;
+  -moz-box-shadow: inset 0 2px 4px #00304d;
+  box-shadow: inset 0 2px 4px #00304d;
 }
 header.masthead .account {
-  background: #006fb3 url('/images/texture.png');
+  background: #004f80 url('/images/texture.png');
 }
 header.masthead .account .button {
-  background-color: #009eff;
+  background-color: #007fcc;
 }
 header.masthead .account .open .button,
 header.masthead .account .button:hover {
-  background-color: #4dbbff !important;
+  background-color: #1aa8ff !important;
 }
 body,
 .site-footer {
-  background: #006fb3 url('/images/texture.png');
+  background: #004f80 url('/images/texture.png');
 }
 .ckan-icon-json,
 .ckan-icon-rdfxml {
@@ -63,16 +63,16 @@ body,
 }
 .hero {
   padding: 20px 0;
-  background: #006fb3 url('/images/texture.png');
+  background: #004f80 url('/images/texture.png');
 }
 .hero .module-dark {
-  background: #008ee6 url('/images/texture.png');
+  background: #006fb3 url('/images/texture.png');
 }
 .hero .module-dark .module-content {
   background: transparent;
 }
 .hero .search-giant input {
-  border-color: #004f80;
+  border-color: #00304d;
 }
 .hero-primary {
   width: 100%;
@@ -96,9 +96,9 @@ body,
   -moz-border-radius: 100px;
   border-radius: 100px;
   background: #eeeeee url('/images/texture.png');
-  -webkit-box-shadow: 0 1px 2px #004f80;
-  -moz-box-shadow: 0 1px 2px #004f80;
-  box-shadow: 0 1px 2px #004f80;
+  -webkit-box-shadow: 0 1px 2px #00304d;
+  -moz-box-shadow: 0 1px 2px #00304d;
+  box-shadow: 0 1px 2px #00304d;
 }
 .search-box .facets li a:hover {
   background-color: white;
@@ -183,9 +183,9 @@ body,
   left: 178px;
   text-indent: 0;
   text-transform: uppercase;
-  -webkit-box-shadow: 0 0 1px #006fb3;
-  -moz-box-shadow: 0 0 1px #006fb3;
-  box-shadow: 0 0 1px #006fb3;
+  -webkit-box-shadow: 0 0 1px #004f80;
+  -moz-box-shadow: 0 0 1px #004f80;
+  box-shadow: 0 0 1px #004f80;
 }
 .attribution p {
   float: left;
@@ -205,8 +205,8 @@ body,
 .ie9 .masthead nav ul li a.active,
 .ie8 .masthead nav ul li a.active,
 .ie7 .masthead nav ul li a.active {
-  background-color: #006fb3;
-  border-bottom-color: #009eff;
+  background-color: #004f80;
+  border-bottom-color: #007fcc;
 }
 .ie8 .main:after,
 .ie7 .main:after,
