@@ -76,7 +76,6 @@ body,
 .hero {
   padding: 20px 0;
   background: #1f5575 url('/images/home.jpg');
-  background-size: 100%;
   min-height: 280px;
 }
 .hero .module-dark {
