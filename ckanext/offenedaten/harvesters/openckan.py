@@ -1,5 +1,6 @@
 #coding: utf-8
 import logging
+import json
 
 from ckan import model
 from ckan.model import Session
@@ -8,6 +9,8 @@ from ckan.logic.action.update import package_update_rest
 from ckanext.harvest.harvesters.ckanharvester import CKANHarvester
 
 log = logging.getLogger(__name__)
+
+EXCLUDE_OPEN_LICENSES = ['dl-de-by-1.0']
 
 
 class OpenCKANHarvester(CKANHarvester):
@@ -23,6 +26,14 @@ class OpenCKANHarvester(CKANHarvester):
         }
 
     def import_stage(self, harvest_object):
+        package_dict = json.loads(harvest_object.content)
+
+        # do not import packages that are not defined as open
+        if not package_dict['isopen']:
+            return
+
+        if package_dict['license_id'] in EXCLUDE_OPEN_LICENSES:
+            return
 
         super(OpenCKANHarvester, self).import_stage(harvest_object)
 
