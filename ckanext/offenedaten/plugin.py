@@ -40,13 +40,11 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
         config['ckan.site_title'] = 'OffeneDaten.de'
         config['ckan.favicon'] = '/images/favicon.ico'
 
-        config['package_hide_extras'] = ' '.join(['eu_country',
-                    'harvest_catalogue_name',
-                    'harvest_catalogue_url', 'harvest_dataset_url',
-                    'eu_nuts1', 'eu_nuts2', 'eu_nuts3'])
-        config['search.facets'] = 'groups tags extras_eu_country res_format'
-        config['search.facets.extras_eu_country.title'] = 'Country'
-        config['search.facets.res_format.title'] = 'File Formats'
+        config['package_hide_extras'] = ' '.join(['harvest_catalogue_name',
+                    'harvest_catalogue_url', 'harvest_dataset_url'])
+        config['search.facets'] = 'groups tags license_title res_format'
+        config['search.facets.res_format.title'] = 'Dateiformate'
+        config['search.facets.license_title.title'] = 'Lizenzen'
         toolkit.add_resource('theme/fanstatic_library', 'ckanext-offenedaten')
 
     def before_map(self, route_map):
