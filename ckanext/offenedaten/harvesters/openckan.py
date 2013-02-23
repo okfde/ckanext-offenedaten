@@ -10,34 +10,29 @@ from ckanext.harvest.harvesters.ckanharvester import CKANHarvester
 log = logging.getLogger(__name__)
 
 
-class GovDataCKANHarvester(CKANHarvester):
+class OpenCKANHarvester(CKANHarvester):
 
     _groups_cache = {}
 
     def info(self):
         return {
-            'name': 'ckan_govdata',
-            'title': 'CKAN (GovData.de)',
-            'description': 'CKAN Harvester modified for open data on GovData.de',
+            'name': 'ckan_open',
+            'title': 'CKAN (Open)',
+            'description': 'CKAN Harvester that only harvests datasets with open licenses.',
             'form_config_interface': 'Text'
         }
 
     def import_stage(self, harvest_object):
 
-        super(GovDataCKANHarvester, self).import_stage(harvest_object)
+        super(OpenCKANHarvester, self).import_stage(harvest_object)
 
         if harvest_object.package_id:
             # Add some extras to the newly created package
             new_extras = {
-                'eu_country': self.config.get('eu_country',''),
-                'harvest_catalogue_name': self.config.get('harvest_catalogue_name',''),
+                'harvest_catalogue_name': self.config.get('harvest_catalogue_name', ''),
                 'harvest_catalogue_url': harvest_object.job.source.url,
                 'harvest_dataset_url': harvest_object.job.source.url.strip('/') + '/package/' + harvest_object.package_id
             }
-
-            for extra in ['eu_nuts1','eu_nuts2','eu_nuts3']:
-                if self.config.get(extra,''):
-                    new_extras[extra] = self.config[extra]
 
             context = {
                 'model': model,
@@ -46,7 +41,5 @@ class GovDataCKANHarvester(CKANHarvester):
                 'id': harvest_object.package_id
             }
 
-            data_dict = {'extras':new_extras}
-            package_update_rest(data_dict,context)
-
-
+            data_dict = {'extras': new_extras}
+            package_update_rest(data_dict, context)

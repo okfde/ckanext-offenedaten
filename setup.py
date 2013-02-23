@@ -27,7 +27,7 @@ setuptools.setup(
         [ckan.plugins]
     # Add plugins here
     offenedaten=ckanext.offenedaten.plugin:OffeneDatenCustomizations
-    ckan_berlin_harvester=ckanext.offenedaten.harvesters:BerlinCKANHarvester
+    open_ckan_harvester=ckanext.offenedaten.harvesters:OpenCKANHarvester
 
     """,
 )

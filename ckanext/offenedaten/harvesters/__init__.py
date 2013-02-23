@@ -1,1 +1,1 @@
-from govdata import govdataCKANHarvester
+from openckan import OpenCKANHarvester
