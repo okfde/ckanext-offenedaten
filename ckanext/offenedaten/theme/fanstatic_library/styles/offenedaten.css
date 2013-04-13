@@ -25,37 +25,28 @@ a {
 .btn-primary:hover {
   background: #1f5575 !important;
 }
+header.account-masthead {
+  background: #1a4661 url('/images/texture.png');
+}
+header.account-masthead .account ul li {
+  border-left-color: #0f2938;
+}
+header.account-masthead .account ul li a:hover {
+  background: #0f2938 url('/images/texture.png');
+}
 header.masthead {
   background: #2a729d url('/images/texture.png');
 }
 header.masthead .site-search input {
   border-color: #0a1a24;
 }
-header.masthead .dropdown-menu li a {
-  color: #2a729d;
+header.masthead a.logo img {
+  margin-top: 4px;
+  height: 47px;
 }
-header.masthead .dropdown-menu li a:hover {
-  background-color: #2a729d;
-}
-header.masthead .navigation ul.unstyled li.active a {
-  background: #1f5575 url('/images/texture.png');
-  -webkit-box-shadow: inset 0 2px 4px #14384d;
-  -moz-box-shadow: inset 0 2px 4px #14384d;
-  box-shadow: inset 0 2px 4px #14384d;
-}
-header.masthead .account {
-  background: #1f5575 url('/images/texture.png');
-}
-header.masthead .account .button {
-  background-color: #2f81b1;
-}
-header.masthead .account .open .button,
-header.masthead .account .button:hover {
-  background-color: #5aa6d3 !important;
-}
-header.masthead .logo {
-  display: block;
-  margin-top: 7px;
+header.masthead .navigation .nav li a:hover,
+header.masthead .navigation .nav li.active a {
+  background: #1a4661 url('/images/texture.png');
 }
 body,
 .site-footer {
@@ -89,6 +80,9 @@ body,
 }
 .hero-primary {
   width: 100%;
+}
+.module {
+  margin: 0;
 }
 .search-box {
   float: left;
@@ -165,6 +159,14 @@ body,
 .featured-ideas .media-image {
   display: none;
 }
+.about {
+  margin-top: 0;
+}
+.about .page-header {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
 .about h2 {
   margin-bottom: 5px;
 }
@@ -179,10 +181,8 @@ body,
   padding-right: 20px;
 }
 .about .span3 {
-  border-left: 1px dotted #DDD;
   padding-left: 20px;
-  width: 228px;
-  margin-left: -1px;
+  margin: 0;
 }
 .about .span3 .mid-paragraph {
   margin: 15px 0;
@@ -192,8 +192,8 @@ body,
 }
 .offenedaten-beta {
   position: absolute;
-  bottom: 4px;
-  left: 178px;
+  bottom: 3px;
+  left: 169px;
   text-indent: 0;
   text-transform: uppercase;
   -webkit-box-shadow: 0 0 1px #1f5575;
