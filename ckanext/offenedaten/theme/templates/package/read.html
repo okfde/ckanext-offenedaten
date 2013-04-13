@@ -1,5 +1,12 @@
 {% ckan_extends %}
 
+{% block primary_content %}
+{{ super() }}
+<section class="module module-content">
+{{ h.disqus_comments() }}
+</section>
+{% endblock %}
+
 {% block secondary_content %}
   {% if c.harvest_catalogue_name %}
   <section class="module module-narrow module-shallow">
@@ -20,6 +27,7 @@
       {% endif %}
     </p>
   </section>
+
   {% endif %}
 
   {{ super() }}
