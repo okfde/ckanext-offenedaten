@@ -1,12 +1,13 @@
+
 {% ckan_extends %}
 
 {% block breadcrumb_content %}
   <li class="active"><a href="#">Über {{ g.site_title }}</a></li>
 {% endblock %}
 
-{% block actions_content %}
-  <li><a href="mailto:info@offenedaten.de.de" class="btn"><i class="icon-envelope"></i> Kontakt</a></li>
-  <li><a href="http://github.com/okfde/ckanext-offenedaten" target="_blank" class="btn"><i class="icon-github"></i> Quelltext</a></li>
+{% block add_action_content %}
+  <a href="mailto:info@offenedaten.de.de" class="btn"><i class="icon-envelope"></i> Kontakt</a>
+  <a href="http://github.com/okfde/ckanext-offenedaten" target="_blank" class="btn"><i class="icon-github"></i> Quelltext</a>
 {% endblock %}
 
 {% block primary %}
@@ -14,7 +15,7 @@
     <header class="module-content page-header">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#about" data-toggle="tab">Über</a></li>
-        <!-- <li><a href="#mitarbeit" data-toggle="tab">Mithelfen</a></li> -->
+        <li><a href="#mitarbeit" data-toggle="tab">Mithelfen</a></li>
       </ul>
     </header>
 
@@ -23,16 +24,23 @@
         <div class="span8 tab-content">
 
           <div class="tab-pane active" id="about">
-            <h2>Was ist OffeneDaten.de</h2>
+            <h2>Was ist {{ g.site_title }}?</h2>
             <p class="lead">
-              OffeneDaten.de ist ein Datenkatalog für offene Daten in Deutschland. Die Seite wurde 2010 von engagierten Bürgern initiiert, weil es bis Dato kein vergleichbares Angebot in Deutschland gab.
+              {{ g.site_title }} ist ein Datenkatalog für offene Daten in Deutschland. Die Seite wurde 2010 von engagierten Bürgern initiiert, weil es bis Dato kein vergleichbares Angebot in Deutschland gab.
             </p>
+            <p>
+              Die Seite wird heute von der Open Knowledge Foundation Deutschland mit dem Zweck betrieben ein unabhängiges und umfassendes Datenangebot anzubieten, in dem sowohl Daten der Öffentlichen Verwaltung als auch Daten aus anderen Wissensdomainen, aus Wissenschaft und Forschung oder der Privatwirtschaft sowie von Bürgern erzeugte Daten (Crowdsourcing) zu finden sind.
+            </p>
+            <p>
+              Das Portal basiert auf der aktuellen Entwickler-Version von <a href="http://ckan.org/">CKAN</a> und dient damit auch als Experimentierfeld für neue Features. {{ g.site_title }} ist mit ehrenamtlicher Arbeit und ohne Budget innerhalb weniger Tage entstanden. Die gesamte Seite ist <a href="https://github.com/okfde/ckanext-offenedaten">freie Software/Open Source</a> und <a href="https://github.com/okfde/ckanext-offenedaten/issues">wir freuen uns über Feedback</a>.
+            </p>
+          </div>
 
-            <p>Die Seite wird heute von der Open Knowledge Foundation Deutschland mit dem Zweck betrieben ein unabhängiges und umfassendes Datenangebot anzubieten, in dem sowohl Daten der Öffentlichen Verwaltung als auch Daten aus anderen Wissensdomainen, aus Wissenschaft und Forschung oder der Privatwirtschaft sowie von Bürgern erzeugte Daten (Crowdsourcing) zu finden sind.</p>
-
-            <p>Das Portal basiert auf der aktuellen Entwickler-Version von <a href="http://ckan.org/">CKAN</a> und dient damit auch als Experimentierfeld für neue Features. OffeneDaten.de ist mit ehrenamtlicher Arbeit und ohne Budget innerhalb weniger Tage entstanden. Die gesamte Seite ist <a href="https://github.com/okfde/ckanext-offenedaten">freie Software/Open Source</a> und <a href="https://github.com/okfde/ckanext-offenedaten/issues">wir freuen uns über Feedback</a>.</p>
-            <h2 id="mitarbeit">Wie kann ich bei {{ g.site_title }} mithelfen?</h2>
-            <p class="lead">OffeneDaten.de wird von der Open-Data-Community in Deutschland kuratiert.</p>
+          <div class="tab-pane" id="mitarbeit">
+            <h2>Wie kann ich bei {{ g.site_title }} mithelfen?</h2>
+            <p class="lead">
+              {{ g.site_title }} wird von der Open-Data-Community in Deutschland kuratiert.
+            </p>
             <p>Wir brauchen deine Hilfe bei folgenden Aufgaben:</p>
             <ul>
               <li>Datensätze mit verschwundenen Daten entfernen.</li>
@@ -41,20 +49,15 @@
               <li>Neue offene Datensätze können eingetragen werden.</li>
             </ul>
             <p>Mehr Details folgen...</p>
-            <hr/>
-            <p><small><a href="https://secure.flickr.com/photos/53074617@N00/2457315858/">Bild auf der Startseite</a> von <a href="http://www.flickr.com/people/53074617@N00">Wolfgang Staudt</a> unter <a href="http://creativecommons.org/licenses/by/2.0/deed.en">CC-BY</a>.</small></p>
-
           </div>
-
         </div>
 
         <aside class="span3">
-
           <p><a href="http://okfn.org" target="_blank"><img src="/images/logo_fullname_medium.png" height="50"></a></p>
 
           <p>{{ g.site_title }} wird von der <a href="http://okfn.de" target="_blank">Open Knowledge Foundation Deutschland</a> betrieben.</p>
 
-          <p>Die Software hinter{{ g.site_title }} ist <a href="http://ckan.org" target="_blank">CKAN</a>, eine Datenkatalog-Software, das von vielen Ländern und Organisationen genutzt wird, um offene Daten zu verwalten. CKAN und alle Komponenten sind Open Source Software. CKAN wird z.B. auch vom Datenportal der britischen Regierung data.gov.uk verwendet.</p>
+          <p>Die Software hinter {{ g.site_title }} ist <a href="http://ckan.org" target="_blank">CKAN</a>, eine Datenkatalog-Software die von vielen Ländern und Organisationen genutzt wird um offene Daten zu verwalten. CKAN und alle Komponenten sind Open Source Software. CKAN wird z.B. auch vom Datenportal der britischen Regierung data.gov.uk verwendet.</p>
 
           <p><a href="http://ckan.org/" target="_blank"><img src="/images/ckan_logo_shortname.png" height="50"></a></p>
 
