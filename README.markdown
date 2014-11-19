@@ -8,7 +8,7 @@ Custom CKAN extension for [offenedaten.de](http://offenedaten.de/)
 
 2. Install ckanext-offenedaten. Activate your CKAN virtual environment and:
 
-        git clone git@github.com:okfn/ckanext-offenedaten.git
+        git clone git@github.com:okfde/ckanext-offenedaten.git
         cd ckanext-offenedaten
         python setup.py develop
         pip install -r pip-requirements.txt
