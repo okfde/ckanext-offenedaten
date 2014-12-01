@@ -17,6 +17,8 @@ log = logging.getLogger(__name__)
 from datetime import datetime
 import gdata.spreadsheet.text_db
 
+get_action = logic.get_action
+
 
 def get_root_dir():
     here = os.path.dirname(__file__)
@@ -24,10 +26,10 @@ def get_root_dir():
     return rootdir
 
 
-class RewiringController(BaseController):
-
-    def tag(self, tags):
-        redirect(h.url_for(controller='package', action='search', tags=tags))
+#class RewiringController(BaseController):
+#
+#    def tag(self, tags):
+#        redirect(h.url_for(controller='package', action='search', tags=tags))
 
 
 class SubscribeController(BaseController):
@@ -74,7 +76,6 @@ class SubscribeController(BaseController):
             'Your email has been stored. Thank you for your interest.'))
         redirect('/')
 
-
 class MapController(BaseController):
 
     def _get_config(self):
@@ -119,6 +120,25 @@ class MapController(BaseController):
 
     def show(self):
         self._get_config()
+        #This needs to get all orgs
+        #Do it based on the data because we want to be able to take params and filter
+        #But for now just orgs
+        group_type = 'organization'
+
+        context = {'model': model, 'session': model.Session,
+                   'user': c.user or c.author, 'for_view': True,
+                   'with_private': False}
+                   
+        q = c.q = request.params.get('q', '')
+        data_dict = {'all_fields': True, 'q': q, 'include_extras': True}
+        sort_by = c.sort_by_selected = request.params.get('sort')
+        if sort_by:
+            data_dict['sort'] = sort_by
+            
+        #TODO: Get last modified date
+        #TODO: Compact data to what we need
+        c.results = json.dumps(get_action('organization_list')(context, data_dict))
+        
         return render('home/map.html')
 
     def data(self):

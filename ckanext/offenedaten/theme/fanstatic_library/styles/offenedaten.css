@@ -231,3 +231,47 @@ body,
 .ie7 [role="main"]:before {
   display: none;
 }
+#map {
+  height: 500px;
+}
+#map.homepage {
+  float: left;
+  width: 500px;
+  height: 300px;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+.leaflet-popup-content {
+  padding: 0.2em;
+}
+.leaflet-popup-content .name {
+  font-weight: bold;
+}
+.leaflet-popup-content .local_name {
+  font-style: italic;
+  border-bottom: 1px solid #E3E3E3;
+}
+.leaflet-popup-content .datasets {
+  margin-top: 0.5em;
+}
+#view-map {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  color: #FFF;
+  font-weight: bold;
+}
+.wrapper.map {
+  background-image: none;
+}
+.map-wrapper {
+  padding: 20px;
+}
+.map-wrapper h1 {
+  color: #000;
+  margin-top: 0;
+}
+.map-wrapper #map {
+  background: #bbbbbb url('/images/texture.png');
+  margin: 20px 0;
+}

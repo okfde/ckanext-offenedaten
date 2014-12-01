@@ -1,0 +1,9 @@
+{% extends 'page.html' %}
+
+{% block wrapper_class %} map{% endblock %}
+
+{% block primary %}
+  <div class="map-wrapper">
+    {% snippet "home/snippets/map.html", results=c.results %}
+  </div>
+{% endblock %}

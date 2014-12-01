@@ -1,0 +1,16 @@
+{#
+Displays the organization items on a map.
+
+organizations - A list of organizations.
+#}
+
+{% block organization_list %}
+<a href="{{ h.add_url_param(alternative_url='/map') }}">Karte</a>
+<ul class="media-grid" data-module="media-grid">
+  {% block organization_list_inner %}
+  {% for organization in organizations %}
+    {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
+  {% endfor %}
+   {% endblock %}
+</ul>
+{% endblock %}

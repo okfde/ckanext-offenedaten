@@ -1,6 +1,8 @@
 import os
 import re
+import collections
 
+from ckan.lib.plugins import DefaultGroupForm
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
@@ -9,10 +11,11 @@ class UnexpectedDateFormat(Exception):
     pass
 
 
-class OffeneDatenCustomizations(plugins.SingletonPlugin):
+class OffeneDatenCustomizations(plugins.SingletonPlugin, DefaultGroupForm):
     plugins.implements(plugins.IRoutes)
     plugins.implements(plugins.IConfigurer, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
+    plugins.implements(plugins.IFacets)
 
     def before_index(self, dataset_dict):
 
@@ -62,10 +65,37 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
 
         config['package_hide_extras'] = ' '.join(['harvest_catalogue_name',
                     'harvest_catalogue_url', 'harvest_dataset_url'])
-        config['search.facets'] = 'groups tags license_title res_format'
-        config['search.facets.res_format.title'] = 'Dateiformate'
-        config['search.facets.license_title.title'] = 'Lizenzen'
+        #config['search.facets'] = 'groups tags license_title res_format location'
+        #config['search.facets.res_format.title'] = 'Dateiformate'
+        #config['search.facets.license_title.title'] = 'Lizenzen'
+        #config['search.facets.location_title.title'] = 'Location'
         toolkit.add_resource('theme/fanstatic_library', 'ckanext-offenedaten')
+    
+    #Overly complicated solution from https://github.com/openresearchdata/ckanext-ord-hierarchy/blob/master/ckanext/ord_hierarchy/plugin.py#L210
+    #TODO: simplify back to documented advice   
+    def dataset_facets(self, facets_dict, package_type):
+        dummy_facets = facets_dict
+        facets_dict = collections.OrderedDict()
+        facets_dict['location'] = toolkit._('Location')
+        for key in dummy_facets.keys():
+            facets_dict[key] = dummy_facets[key]
+        return facets_dict
+
+    def group_facets(self, facets_dict, group_type, package_type):
+        dummy_facets = facets_dict
+        facets_dict = collections.OrderedDict()
+        facets_dict['location'] = toolkit._('Location')
+        for key in dummy_facets.keys():
+            facets_dict[key] = dummy_facets[key]
+        return facets_dict
+
+    def organization_facets(self, facets_dict, organization_type, package_type):
+        dummy_facets = facets_dict
+        facets_dict = collections.OrderedDict()
+        facets_dict['location'] = toolkit._('Location')
+        for key in dummy_facets.keys():
+            facets_dict[key] = dummy_facets[key]
+        return facets_dict
 
     def before_map(self, route_map):
         wire_controller = 'ckanext.offenedaten.controllers:RewiringController'
