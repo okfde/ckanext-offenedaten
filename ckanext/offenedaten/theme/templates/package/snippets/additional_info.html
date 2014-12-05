@@ -1,0 +1,23 @@
+<section class="additional-info">
+      {% block package_additional_info %}
+        {% if pkg_dict.url %}
+            <span class="dataset-label">{{ _('URL') }}</span>:
+            <span class="dataset-details" property="foaf:homepage">{{ h.link_to(pkg_dict.url, pkg_dict.url, rel='foaf:homepage', target='_blank') }}</span>
+        {% endif %}
+        
+        {% block extras scoped %}
+          {% for extra in h.sorted_extras(pkg_dict.extras) %}
+            {% set key, value = extra %}
+            {% if key == 'metadata_source_portal' and value != '' %}
+              {% set portal = value %}
+            {% endif %}
+            {% if key == 'metadata_source_type' %}
+              <br /><span class="dataset-label">{{ _('Source') }}:</span> {{ _(value) }}
+              {% if portal %}
+                ({{ portal }})
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endblock %}
+      {% endblock %}
+</section>
