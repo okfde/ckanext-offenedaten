@@ -2,7 +2,6 @@ import os
 import re
 import collections
 
-from ckan.lib.plugins import DefaultGroupForm
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
@@ -11,10 +10,11 @@ class UnexpectedDateFormat(Exception):
     pass
 
 
-class OffeneDatenCustomizations(plugins.SingletonPlugin, DefaultGroupForm):
+class OffeneDatenCustomizations(plugins.SingletonPlugin):
     plugins.implements(plugins.IRoutes)
     plugins.implements(plugins.IConfigurer, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
+    plugins.implements(plugins.IFacets)
 
     def before_index(self, dataset_dict):
 
@@ -67,6 +67,17 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin, DefaultGroupForm):
 
         toolkit.add_resource('theme/fanstatic_library', 'ckanext-offenedaten')
 
+    def dataset_facets(self, facets_dict, package_type):
+        facets_dict['metadata_source_type'] = toolkit._('Source')
+        facets_dict['openstatus'] = toolkit._('Offenheit')
+        del facets_dict['tags']
+        return facets_dict
+
+    def group_facets(self, facets_dict, group_type, package_type):
+        return self.dataset_facets(facets_dict, package_type)
+
+    def organization_facets(self, facets_dict, organization_type, package_type):
+        return self.dataset_facets(facets_dict, package_type)
 
     def before_map(self, route_map):
         wire_controller = 'ckanext.offenedaten.controllers:RewiringController'

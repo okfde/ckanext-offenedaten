@@ -1,0 +1,75 @@
+{# Context hack: http://stackoverflow.com/questions/4870346/can-a-jinja-variables-scope-extend-beyond-in-an-inner-block#answer-21860373 #}
+
+{% set lat = [] %}
+{% set lon = [] %}
+{% set email = [] %}
+{% set contact = [] %}
+{% set odp = [] %}
+{% set url = [] %}
+{% set apig = [] %}
+{% set apil = [] %}
+{% set apip = [] %}
+{% set apipc = [] %}
+
+{# fixme, we shouldn't need the None check later #}
+
+{% for extra in extras %}
+  {% set key, value = extra %}
+  {% if key == 'latitude' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = lat.append(value) %}
+  {% elif key == 'longitude' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = lon.append(value) %}
+  {% elif key == 'contact_email' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = email.append(value) %}
+  {% elif key == 'contact_person' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = contact.append(value) %}
+  {% elif key == 'open_data_portal' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = odp.append(value) %}
+  {% elif key == 'url' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = url.append(value) %}
+  {% elif key == 'api_get' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = apig.append(value) %}
+  {% elif key == 'api_link' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = apil.append(value) %}
+  {% elif key == 'api_post' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = apip.append(value) %}
+  {% elif key == 'api_post_content' %}
+    {% if value == 'None' %}{% set value = None %}{% endif %}
+    {% set _ = apipc.append(value) %}
+  {% endif %}
+{% endfor %}  
+
+{% if email[0] %}
+  <span class="dataset-label">Kontakt für Nachfragen:</span> <a href="mailto:{{ email[0] }}">{{ email[0] }}</a>
+{% endif %}
+{% if url[0] %}
+  <br><span class="dataset-label">Portal:</span> <a href="{{ url[0] }}">{{ url[0] }}</a>
+{% endif %}
+{% if odp[0] %}
+  <br><span class="dataset-label">Offene Daten Portal:</span> <a href="{{ odp[0] }}">{{ odp[0] }}</a>
+{% endif %}
+{% if apig[0] and apil[0] %}
+  <br><span class="dataset-label">Katalog API (GET):</span> <a href="{{ apil[0] }}">{{ apil[0] }}</a>
+{% elif apip[0] %}
+  <br><span class="dataset-label">Katalog API (POST):</span> <a href="{{ apip[0] }}">{{ apip }}</a>
+  {% if apipc[0] %}
+    <br><span class="dataset-label">Inhalt zu POST:</span> <pre>{{ apipc[0] }}</pre>
+  {% endif %}
+{% endif %}
+
+
+
+
+
+
+
+
