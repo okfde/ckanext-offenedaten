@@ -2,8 +2,12 @@
 
 {% block wrapper_class %} map{% endblock %}
 
-{% block primary %}
+{% block primary_content %}
   <div class="map-wrapper">
     {% snippet "home/snippets/map.html", results=c.results %}
   </div>
+{% endblock %}
+
+{% block secondary_content %}
+  {{ h.snippet('showmap/snippets/showdata.html') }}
 {% endblock %}

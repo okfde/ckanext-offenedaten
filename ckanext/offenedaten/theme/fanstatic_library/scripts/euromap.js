@@ -11,7 +11,9 @@ this.ckan.module('euromap', function($) {
     MB_URL: 'http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png',
 		initialize: function() {  
 			var linecolor = '#000000'
-			var options = {};
+      var options = {};
+      var windowHeight = $(window).height();
+      this.el.height(windowHeight);
 
 			var southWest = new L.latLng(46.10370875598026, 3.2299804687499996);
       var northEast = new L.latLng(55.7765730186677, 17.29248046875);
@@ -52,9 +54,6 @@ this.ckan.module('euromap', function($) {
       });*/
       
       _.each(this.options.results, function(d) {
-        _.each(d.extras, function(e) {
-          d[e.key] = e.value;
-        });        
         var gicon = L.MakiMarkers.icon({icon: "polling-place", color: "#0c0", size: "s"});
         var bicon = L.MakiMarkers.icon({icon: "polling-place", color: "#665", size: "s"});
         var lat = parseFloat(d.latitude, 10);

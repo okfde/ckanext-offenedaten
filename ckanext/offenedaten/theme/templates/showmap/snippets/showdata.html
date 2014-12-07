@@ -1,0 +1,11 @@
+<section id="showmap" class="module module-narrow module-shallow">
+  <h2 class="module-heading">
+    <i class="icon-medium icon-sitemap"></i>
+    {% set url = h.add_url_param(alternative_url='/dataset') %}
+    <a href="{{ url }}" class="action">Datenansicht</a>
+  </h2>
+  <div class="showmap-text">
+    Daten von diesen {{ _('Organizations') }} 
+    <a href="{{ url }}" class="action">auflisten</a>
+  </div>
+</section>

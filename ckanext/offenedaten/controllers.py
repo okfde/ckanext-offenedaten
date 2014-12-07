@@ -118,6 +118,17 @@ class MapController(BaseController):
 
         return render('home/index.html')
 
+    def _compactresults(self, item):
+        notinextras = ('name', 'title', 'package_count')
+        inextras = ('url', 'latitude', 'longitude', 'city_type', 'contact_email', 'open_data_portal')
+        ritem = {}
+        for key in notinextras:
+            ritem[key] = item[key]
+        for akey in item['extras']:
+            if akey['key'] in inextras:
+                ritem[akey['key']] = akey['value']
+        return ritem  
+
     def show(self):
         self._get_config()
         #This needs to get all orgs
@@ -137,9 +148,11 @@ class MapController(BaseController):
             
         #TODO: Get last modified date
         #TODO: Compact data to what we need
-        c.results = json.dumps(get_action('organization_list')(context, data_dict))
+        results = get_action('organization_list')(context, data_dict)
+        passresults = map(self._compactresults, results)
+        c.results = json.dumps(passresults)
         
-        return render('home/map.html')
+        return render('home/map.html')     
 
     def data(self):
         # Get the Europe dataset
