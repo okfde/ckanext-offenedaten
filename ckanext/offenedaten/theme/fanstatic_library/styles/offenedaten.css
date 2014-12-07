@@ -209,6 +209,9 @@ body,
 span.dataset-label {
   font-weight: bold;
 }
+div.showmap-text {
+  margin: 5px 8px;
+}
 .ie9 .masthead,
 .ie8 .masthead,
 .ie7 .masthead,

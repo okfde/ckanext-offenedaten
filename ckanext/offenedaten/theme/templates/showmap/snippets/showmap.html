@@ -1,0 +1,17 @@
+<section id="showmap" class="module module-narrow module-shallow">
+  <h2 class="module-heading">
+    <i class="icon-medium icon-globe"></i>
+    {% if groupname %}
+      {% set url = h.add_url_param(alternative_url='/map', new_params={'groups': groupname}) %}
+    {% else %}
+      {% set url = h.add_url_param(alternative_url='/map') %}
+    {% endif %}
+    <a href="{{ url }}" class="action">Kartenansicht</a>
+  </h2>
+  <div class="showmap-text">Alle {{ _('Organizations') }}
+  {% if not organizationview %}
+  mit solchen Daten 
+  {% endif %}
+  <a href="{{ url }}" class="action">auf einer Karte</a>
+  darstellen</div>
+</section>
