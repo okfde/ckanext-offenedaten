@@ -147,7 +147,6 @@ class MapController(BaseController):
             data_dict['sort'] = sort_by
             
         #TODO: Get last modified date
-        #TODO: Compact data to what we need
         results = get_action('organization_list')(context, data_dict)
         passresults = map(self._compactresults, results)
         c.results = json.dumps(passresults)
