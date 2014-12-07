@@ -16,7 +16,7 @@ this.ckan.module('euromap', function($) {
       this.el.height(windowHeight);
 
 			var southWest = new L.latLng(46.10370875598026, 3.2299804687499996);
-      var northEast = new L.latLng(55.7765730186677, 17.29248046875);
+      var northEast = new L.latLng(57.7765730186677, 17.29248046875);
       var bounds = new L.latLngBounds(southWest, northEast);
 
 			if (this.options.homepage) {
@@ -76,7 +76,9 @@ this.ckan.module('euromap', function($) {
         var portal = "";
         if ($.trim(d.url).length > 0) portal = 'Portal: <a href=\"' + d.url + '\">' + d.url + '</a>';
         //TODO get modified
-        marker.bindPopup('<h2><a href=\"' + baseurl + '/' + d.name + '\">' + d.title + '</a></h2><ul><li>' + d.package_count + ' Datensätze</li>' + emailContent + '</ul>' + portal + opendataportal);
+        marker.bindPopup('<h2><a href=\"' + baseurl + '/' + d.name + '\">' + d.title + '</a></h2><ul><li>' + d.package_count + ' Datensätze</li>' + emailContent + '</ul>' + portal + opendataportal, {
+          maxHeight: windowHeight
+        });
         marker.bindLabel(d.title, {
           className: 'labelClass'
         });
