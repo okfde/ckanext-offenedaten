@@ -28,7 +28,6 @@ setuptools.setup(
     # Add plugins here
     offenedaten=ckanext.offenedaten.plugin:OffeneDatenCustomizations
     open_ckan_harvester=ckanext.offenedaten.harvesters:OpenCKANHarvester
-    
-
+    bw_harvester=ckanext.offenedaten.harvesters.odm_harvesters:baden_wuerttemberg
     """,
 )
