@@ -120,7 +120,7 @@ class MapController(BaseController):
 
     def _compactresults(self, item):
         notinextras = ('name', 'title', 'package_count')
-        inextras = ('url', 'latitude', 'longitude', 'city_type', 'contact_email', 'open_data_portal')
+        inextras = ('url', 'latitude', 'longitude', 'polygon', 'city_type', 'contact_email', 'open_data_portal')
         ritem = {}
         for key in notinextras:
             ritem[key] = item[key]

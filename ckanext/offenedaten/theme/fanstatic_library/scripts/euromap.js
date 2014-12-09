@@ -54,17 +54,35 @@ this.ckan.module('euromap', function($) {
       });*/
       
       _.each(this.options.results, function(d) {
-        var gicon = L.MakiMarkers.icon({icon: "polling-place", color: "#0c0", size: "s"});
-        var bicon = L.MakiMarkers.icon({icon: "polling-place", color: "#665", size: "s"});
-        var lat = parseFloat(d.latitude, 10);
-        var lon = parseFloat(d.longitude, 10);
-        if (!d.city_type) d.city_type = '';
-        if ((d.city_type.toLowerCase().indexOf('stadt') != -1) || (d.city_type == '')) {
-          //It's a 'city'
-          var marker = L.marker([lat, lon], {icon: gicon});
+        var marker;
+        if (d.polygon) {
+          var pcolor;
+          if (d.city_type.toLowerCase().indexOf('land') != -1) {
+            if (d.city_type.toLowerCase().indexOf('kreis') != -1) {
+              //Landkreis
+              pcolor = "#f93"
+            }
+            else {
+              //Land
+              pcolor = "#600"
+            }
+          }
+          else {
+            console.log('Something with a polygon has an unrecognized city type (city: ' + d.name + ', type: ' + d.city_type + ')');
+            pcolor = "#00e"
+          }
+          marker = L.geoJson($.parseJSON(d.polygon), {
+            style: {
+              fillColor: pcolor,
+              fillOpacity: 0.5
+            }
+          });
         }
         else {
-          var marker = L.marker([lat, lon], {icon: bicon});
+          var gicon = L.MakiMarkers.icon({icon: "polling-place", color: "#0b0", size: "s"});
+          var lat = parseFloat(d.latitude, 10);
+          var lon = parseFloat(d.longitude, 10);
+          marker = L.marker([lat, lon], {icon: gicon});
         }
         //Get the city content, and if it exists, add it to the map
         var cityslug = d.name;
