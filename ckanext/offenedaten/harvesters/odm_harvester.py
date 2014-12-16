@@ -56,6 +56,14 @@ class OdmHarvester(HarvesterBase):
         harvest_object.save()
         return True
 
+    def _open_to_string(self, open):
+        if open is None:
+            return 'Unbekannt'
+        elif open:
+            return 'Offen'
+        else:
+            return 'Nicht offen'
+            
     def _create_unexisting_org(self, org_name):
         try:
             p.toolkit.get_action('organization_show')({}, {'id': org_name})
@@ -96,6 +104,7 @@ class OdmHarvester(HarvesterBase):
             d['extras'].append({'key': 'source', 'value': rec['source']})
             d['extras'].append({'key': 'original_metadata_json', 'value': rec['metadata']})
             d['extras'].append({'key': 'original_metadata_xml', 'value': rec['metadata_xml']})
+            d['extras'].append({'key': 'openstatus', 'value': self._open_to_string(rec['open'])})
             d['license_id'] = rec['licenseshort']
             d['isopen'] = rec['open']
             d['maintainer'] = rec['publisher']
