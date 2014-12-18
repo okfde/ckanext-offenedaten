@@ -110,7 +110,7 @@ class OdmHarvester(HarvesterBase):
             d['maintainer'] = rec['publisher']
             #N.B. groups have to be created, before they can be assigned
             #Groups are dictionaries. We use them via title which is what we store
-            d['groups'] = map(metautils.category_to_group, rec['categories'])
+            d['groups'] = map(metautils.force_alphanumeric_short, rec['categories'])
             d['resources'] = set()
             #Duplicates in resources not allowed. Actually we shouldn't allow them either...
             rurls = set()
