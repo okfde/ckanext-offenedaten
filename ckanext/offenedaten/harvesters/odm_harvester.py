@@ -8,7 +8,6 @@ from ckanext.harvest.harvesters import HarvesterBase
 from ckan import model
 from ckan.model import Session
 from ckan.logic.action.create import organization_create
-from ckan.logic.action.get import group_list
 
 from odm.catalogs.utils import metautils
 
@@ -41,11 +40,16 @@ class OdmHarvester(HarvesterBase):
         ids = []
         ds = self.scraper.gather()
         for d in ds:
-            id = sha1(d['url'].encode('utf-8')).hexdigest()
-            d = json.dumps(d)
-            obj = HarvestObject(guid=id, job=harvest_job, content=d)
-            obj.save()
-            ids.append(obj.id)
+            try:
+                id = d.get('id', False)
+                if not id:
+                    id = sha1(d['url'].encode('utf-8')).hexdigest()
+                d = json.dumps(d)
+                obj = HarvestObject(guid=id, job=harvest_job, content=d)
+                obj.save()
+                ids.append(obj.id)
+            except:
+                print "error"
         return ids
 
     def fetch_stage(self, harvest_object):
