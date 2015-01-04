@@ -29,5 +29,19 @@ setuptools.setup(
     offenedaten=ckanext.offenedaten.plugin:OffeneDatenCustomizations
     open_ckan_harvester=ckanext.offenedaten.harvesters:OpenCKANHarvester
     bw_harvester=ckanext.offenedaten.harvesters.odm_harvesters:baden_wuerttemberg
+    bochum_harvester=ckanext.offenedaten.harvesters.odm_harvesters:bochum
+    braunschweig_harvester=ckanext.offenedaten.harvesters.odm_harvesters:braunschweig
+    bremen_harvester=ckanext.offenedaten.harvesters.odm_harvesters:bremen
+    diepholz_harvester=ckanext.offenedaten.harvesters.odm_harvesters:diepholz
+    moers_harvester=ckanext.offenedaten.harvesters.odm_harvesters:moers
+    rostock_harvester=ckanext.offenedaten.harvesters.odm_harvesters:rostock
+    rlp_harvester=ckanext.offenedaten.harvesters.odm_harvesters:rheinland_pfalz
+    ulm_harvester=ckanext.offenedaten.harvesters.odm_harvesters:ulm
+    koeln_harvester=ckanext.offenedaten.harvesters.odm_harvesters:koeln
+    aachen_harvester=ckanext.offenedaten.harvesters.odm_harvesters:aachen
+    hamburg_harvester=ckanext.offenedaten.harvesters.odm_harvesters:hamburg
+    frankfurt_harvester=ckanext.offenedaten.harvesters.odm_harvesters:frankfurt
+    berlin_harvester=ckanext.offenedaten.harvesters.odm_harvesters:berlin
+    bonn_harvester=ckanext.offenedaten.harvesters.odm_harvesters:bonn
     """,
 )
