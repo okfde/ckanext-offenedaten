@@ -57,10 +57,10 @@
 {% if odp[0] %}
   <br><span class="dataset-label">Offene Daten Portal:</span> <a href="{{ odp[0] }}">{{ odp[0] }}</a>
 {% endif %}
-{% if apig[0] and apil[0] %}
-  <br><span class="dataset-label">Katalog API (GET):</span> <a href="{{ apil[0] }}">{{ apil[0] }}</a>
+{% if odp[0] and apig[0] and apil[0] %}
+  <br><span class="dataset-label">Katalog API (GET):</span> <a href="{{ odp[0] }}{{ apil[0] }}">{{ odp[0] }}{{ apil[0] }}</a>
 {% elif apip[0] %}
-  <br><span class="dataset-label">Katalog API (POST):</span> <a href="{{ apip[0] }}">{{ apip }}</a>
+  <br><span class="dataset-label">Katalog API (POST):</span> <a href="{{ odp[0] }}{{ apip[0] }}">{{ odp[0] }}{{ apip }}</a>
   {% if apipc[0] %}
     <br><span class="dataset-label">Inhalt zu POST:</span> <pre>{{ apipc[0] }}</pre>
   {% endif %}
