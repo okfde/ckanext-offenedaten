@@ -10,6 +10,7 @@ from odm.catalogs.portals.rostock import RostockReader
 from odm.catalogs.portals.rheinland_pfalz import RlpReader
 from odm.catalogs.portals.ulm import UlmReader
 from odm.catalogs.portals.ckanApiV3 import CkanReader
+from odm.catalogs.portals.arnsberg import ArnsbergReader
 
 
 # Weired way of constructing a python class
@@ -19,6 +20,7 @@ def def_harvester(odm_reader):
                 {"scraper": odm_reader})
 
 
+arnsberg           = def_harvester(ArnsbergReader())
 baden_wuerttemberg = def_harvester(BwReader())
 bochum             = def_harvester(BochumReader())
 braunschweig       = def_harvester(BraunschweigReader())
