@@ -104,8 +104,8 @@ class OdmHarvester(HarvesterBase):
             d['notes'] = rec['description']
             d['extras'] = []
             d['extras'].append({'key': 'temporalextent', 'value': rec['temporalextent']})
-            d['extras'].append({'key': 'location', 'value': rec['city']})
-            d['extras'].append({'key': 'source', 'value': rec['source']})
+            d['extras'].append({'key': 'metadata_source_type', 'value': 'Data Catalog'})  # hard coded
+            d['extras'].append({'key': 'metadata_source_portal', 'value': rec['originating_portal']})
             d['extras'].append({'key': 'original_metadata_json', 'value': rec['metadata']})
             d['extras'].append({'key': 'original_metadata_xml', 'value': rec['metadata_xml']})
             d['extras'].append({'key': 'openstatus', 'value': self._open_to_string(rec['open'])})
