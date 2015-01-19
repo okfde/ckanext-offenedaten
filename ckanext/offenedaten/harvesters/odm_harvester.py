@@ -22,11 +22,13 @@ class OdmHarvester(HarvesterBase):
         self.config = {"user": "harvester"}
 
     def _set_config(self, config_str):
+        self.api_key = None
         if config_str:
             self.config = json.loads(config_str)
             if 'api_version' in self.config:
                 self.api_version = int(self.config['api_version'])
-
+            if 'api_key' in self.config:
+                self.api_key = self.config['api_key']
             log.debug('Using config: %r', self.config)
         else:
             self.config = {}
@@ -36,9 +38,13 @@ class OdmHarvester(HarvesterBase):
 
     def gather_stage(self, harvest_job):
         log.debug('In gather_stage of ' + self.info()['title'])
-
+        self._set_config(harvest_job.source.config)
         ids = []
-        ds = self.scraper.gather()
+        
+        if self.api_key !=  None:
+            ds = self.scraper.gather(apikey = self.api_key)
+        else:
+            ds = self.scraper.gather()
         for d in ds:
             try:
                 id = d.get('id', False)
