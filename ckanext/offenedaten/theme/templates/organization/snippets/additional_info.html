@@ -50,6 +50,8 @@
 
 {% if email[0] %}
   <span class="dataset-label">Kontakt für Nachfragen:</span> <a href="mailto:{{ email[0] }}">{{ email[0] }}</a>
+{% else %}
+  <span class="dataset-label">Keine Kontakt für Nachfragen verfügbar. Wenn Sie der Kontaktperson für diese Organisation sind, bitte <a href="mailto:info@offenedaten.de">melden Sie sich bei uns</a> und wir tragen die Info ein.</span>
 {% endif %}
 {% if url[0] %}
   <br><span class="dataset-label">Portal:</span> <a href="{{ url[0] }}">{{ url[0] }}</a>
@@ -65,9 +67,9 @@
     <br><span class="dataset-label">Inhalt zu POST:</span> <pre>{{ apipc[0] }}</pre>
   {% endif %}
 {% endif %}
-
-
-
+<br><br>
+Falls Sie Fehler in den Angaben finden, bitte <a href="mailto:info@offenedaten.de">melden Sie sich bei uns</a> und wir korrigieren die umgehend.
+<br>&nbsp;
 
 
 
