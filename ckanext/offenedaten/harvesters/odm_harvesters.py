@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from ckanext.offenedaten.harvesters.odm_harvester import OdmHarvester
 from odm.catalogs.portals.baden_wuerttemberg import BwReader
+from odm.catalogs.portals.bayern import BayernReader
 from odm.catalogs.portals.braunschweig import BraunschweigReader
 from odm.catalogs.portals.bochum import BochumReader
 from odm.catalogs.portals.diepholz import DiepholzReader
@@ -22,6 +23,7 @@ def def_harvester(odm_reader):
 
 arnsberg           = def_harvester(ArnsbergReader())
 baden_wuerttemberg = def_harvester(BwReader())
+bayern             = def_harvester(BayernReader())
 bochum             = def_harvester(BochumReader())
 braunschweig       = def_harvester(BraunschweigReader())
 bremen             = def_harvester(BremenReader())

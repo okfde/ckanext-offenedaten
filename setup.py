@@ -30,6 +30,7 @@ setuptools.setup(
     open_ckan_harvester=ckanext.offenedaten.harvesters:OpenCKANHarvester
     arnsberg_harvester=ckanext.offenedaten.harvesters.odm_harvesters:arnsberg
     bw_harvester=ckanext.offenedaten.harvesters.odm_harvesters:baden_wuerttemberg
+    bayern_harvester=ckanext.offenedaten.harvesters.odm_harvesters:bayern
     bochum_harvester=ckanext.offenedaten.harvesters.odm_harvesters:bochum
     braunschweig_harvester=ckanext.offenedaten.harvesters.odm_harvesters:braunschweig
     bremen_harvester=ckanext.offenedaten.harvesters.odm_harvesters:bremen
