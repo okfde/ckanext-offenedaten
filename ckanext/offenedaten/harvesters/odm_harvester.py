@@ -133,7 +133,6 @@ class OdmHarvester(HarvesterBase):
             d['resources'] = []
             for url in rurls:
                 d['resources'].append({'url': url})
-            print d['owner_org']
             return self._create_or_update_package(d, harvest_object)
             # return False # self._create_or_update_package(d, harvest_object)
 
