@@ -98,9 +98,13 @@ class OdmHarvester(HarvesterBase):
 
             # snippet from odm-datenerfassung/utils/export_to_ckan.py
             d = {}
+            #If the city field is not set, it should mean the whole thing is empty/not intended to be imported. All ODM data must be tied to a 'city'.
+            if 'city' not in rec:
+                return
             d['id'] = harvest_object.guid
             d['owner_org'] = rec['city']
-            self._create_unexisting_org(d['owner_org'])
+            # TODO: issue a warning if the org does not exist yet (this shouldn't happen often)
+            # self._create_unexisting_org(d['owner_org'])
 
             d['state'] = 'active' if rec['accepted'] else 'deleted'
             d['url'] = rec['url']
@@ -129,7 +133,7 @@ class OdmHarvester(HarvesterBase):
             d['resources'] = []
             for url in rurls:
                 d['resources'].append({'url': url})
-
+            print d['owner_org']
             return self._create_or_update_package(d, harvest_object)
             # return False # self._create_or_update_package(d, harvest_object)
 
