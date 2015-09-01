@@ -1,8 +1,11 @@
 import os
 import re
+import collections
 
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+
+from ckan.common import OrderedDict
 
 
 class UnexpectedDateFormat(Exception):
@@ -13,6 +16,7 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
     plugins.implements(plugins.IRoutes)
     plugins.implements(plugins.IConfigurer, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
+    plugins.implements(plugins.IFacets)
 
     def before_index(self, dataset_dict):
 
@@ -62,10 +66,23 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
 
         config['package_hide_extras'] = ' '.join(['harvest_catalogue_name',
                     'harvest_catalogue_url', 'harvest_dataset_url'])
-        config['search.facets'] = 'groups tags license_title res_format'
-        config['search.facets.res_format.title'] = 'Dateiformate'
-        config['search.facets.license_title.title'] = 'Lizenzen'
+
         toolkit.add_resource('theme/fanstatic_library', 'ckanext-offenedaten')
+
+    def dataset_facets(self, facets_dict, package_type):
+        new_facets_dict = OrderedDict()
+        new_facets_dict['openstatus'] = toolkit._('Offenheit')
+        new_facets_dict['metadata_source_type'] = toolkit._('Source')
+        del facets_dict['tags']
+        for key in facets_dict:
+            new_facets_dict[key] = facets_dict[key]
+        return new_facets_dict
+
+    def group_facets(self, facets_dict, group_type, package_type):
+        return self.dataset_facets(facets_dict, package_type)
+
+    def organization_facets(self, facets_dict, organization_type, package_type):
+        return self.dataset_facets(facets_dict, package_type)
 
     def before_map(self, route_map):
         wire_controller = 'ckanext.offenedaten.controllers:RewiringController'
@@ -79,7 +96,6 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
                           action='send')
 
         map_controller = 'ckanext.offenedaten.controllers:MapController'
-        route_map.connect('/', controller=map_controller, action='index')
         route_map.connect('/map', controller=map_controller, action='show')
         route_map.connect('/map/data.json', controller=map_controller,
                           action='data')

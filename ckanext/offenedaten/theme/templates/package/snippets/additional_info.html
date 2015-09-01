@@ -1,0 +1,36 @@
+<section class="additional-info">
+      {% block package_additional_info %}
+        {% if pkg_dict.url %}
+            <span class="dataset-label">{{ _('URL') }}</span>:
+            <span class="dataset-details" property="foaf:homepage">{{ h.link_to(pkg_dict.url, pkg_dict.url, rel='foaf:homepage', target='_blank') }}</span>
+        {% endif %}
+        
+        {% block extras scoped %}
+          {% for extra in h.sorted_extras(pkg_dict.extras) %}
+            {% set key, value = extra %}
+            {% if key == 'metadata_source_portal' and value != '' %}
+              {% set portal = value %}
+            {% endif %}
+            {% if key == 'metadata_source_type' %}
+              <br /><span class="dataset-label">{{ _('Source') }}:</span> {{ _(value) }}
+              {% if portal %}
+                ({{ portal }})
+              {% endif %}
+            {% endif %}
+            {% if key == 'openstatus' %}
+              <br /><span class="dataset-label">Offenheit:</span>
+              {% if value == 'Unbekannt' %}
+                Wir haben für diese Daten keine Angaben zur Offenheit (Lizenz) - <a href="{{ h.url_for(controller='organization', action='about', id=pkg_dict.organization.name) }}">fragen Sie bei {{ pkg_dict.organization.title }} nach</a>, ob es nicht möglich wäre, diese Datensatz zu lizenzieren. <a href="mailto:info@okfn.de?subject=Datenanfrage Ergebnis fuer offenedaten.de">Lassen Sie uns bitte den Ergebnis wissen</a>!
+              {% elif value == 'Nicht offen' %}
+                Nicht offen - <a href="{{ h.url_for(controller='organization', action='about', id=pkg_dict.organization.name) }}">fragen Sie bei {{ pkg_dict.organization.title }} nach</a>, ob es nicht möglich wäre, diese Datensatz offen zu lizenzieren. <a href="mailto:info@okfn.de?subject=Datenanfrage Ergebnis fuer offenedaten.de">Lassen Sie uns bitte den Ergebnis wissen</a>!
+              {% else %}
+                Offen
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endblock %}
+      {% endblock %}
+      <br><br>
+      Die Allermeisten Daten auf dem Portal werden zum Teil oder komplett automatisiert erfasst. Falls Sie Fehler in den Angaben finden, bitte <a href="mailto:info@offenedaten.de">melden Sie sich bei uns</a> und wir korrigieren die umgehend.
+      <br>&nbsp; 
+</section>

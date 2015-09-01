@@ -1,6 +1,6 @@
 {% ckan_extends %}
 
 {% block secondary_content %}
-  {{ h.snippet('showmap/snippets/showmap.html') }}
+  {{ h.snippet('showmap/snippets/showmap.html', organizationview=True) }}
   {{ super() }}
 {% endblock %}

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// This file is only used to generate the offenedaten.css within public/css/ and 
+// This file is only used to generate the offenedaten.css within fanstatic_library/styles/ and 
 // is for use if the less sheets need updating. In order to run this file:
 // 1. cd ckanext/offenedaten/theme/
 // 2. npm install less

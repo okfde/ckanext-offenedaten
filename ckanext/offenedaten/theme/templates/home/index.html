@@ -1,41 +1,48 @@
 {% ckan_extends %}
 
-{% block primary_content %}
-  <div class="hero-primary">
-
-    <div class="search-box module module-dark info content">
-      <form class="dataset-search module-content clearfix" method="get" action="{% url_for controller='package', action='search' %}">
-        <h3 class="heading">Nach Offenen Daten suchen</h3>
-        <span class="control-group search-giant">
-          <input type="text" class="search" name="q" value="{{ c.q }}" autocomplete="off" placeholder="{{ _('Find datasets') }}">
-          <button type="submit" value="{{ _('Search') }}">Submit</button>
-        </span>
-      </form>
-    </div>
-
-    <div class="span6">
-      <div class="module module-dark">
-        <div class="module-content">
-          <h3 class="heading">OffeneDaten Relaunch</h3>
-          <p>Die Community kuratiert auf diesem Portal Open Data aus Deutschland.</p>
-          <a class="btn" href="/about#mitarbeit">Hilf bei OffeneDaten.de mit!</a>
-          {% snippet "home/snippets/census.html" %}
+{% block content %}
+  <div class="homepage">
+    <div role="main" class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+          {% set tags = h.get_facet_items_dict('tags', limit=3) %}
+          {% set placeholder = _('z.B. Gesundheit') %}
+            <div class="module module-search module-narrow module-shallow box">
+              <form class="module-content search-form" method="get" action="{% url_for controller='package', action='search' %}">
+                <h3 class="heading">Nach Offenen Daten suchen</h3>
+                <div class="search-input control-group search-giant">
+                  <input type="text" class="search" name="q" value="" autocomplete="off" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
+                  <button type="submit">
+                    <i class="icon-search"></i>
+                    <span>{{ _('Search') }}</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="span6">
+            <div class="module module-search module-narrow module-shallow box">
+              <div class="module-content search-form">
+                <h3 class="heading">OffeneDaten Relaunch</h3>
+                <p>Die Community kuratiert auf diesem Portal Open Data aus Deutschland.</p>
+                <a class="btn" href="/about#mitarbeit">Hilf bei OffeneDaten.de mit!</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
-{% endblock %}
-
-{% block secondary_content %}
-  <div class="showcase">
-    <h1>Warum ein Daten-Portal der Open Data Community?</h2>
-    <div class="featured-apps">
-      {% snippet "home/snippets/why.html" %}
-    </div>
-    <div class="featured-apps">
-      <h2>Deutsche Daten-Kataloge</h3>
-      {% snippet "home/snippets/catalogs.html" %}
+  <div class="homepage">
+    <div class="main">
+      <div class="container">
+        <h2>Warum ein Daten-Portal der Open Data Community?</h2>
+        <div class="featured-apps">
+          {% snippet "home/snippets/why.html" %}
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}
+

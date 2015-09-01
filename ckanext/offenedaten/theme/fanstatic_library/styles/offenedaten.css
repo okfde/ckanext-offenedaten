@@ -81,9 +81,6 @@ body,
 .hero-primary {
   width: 100%;
 }
-.module {
-  margin: 0;
-}
 .search-box {
   float: left;
   width: 400px;
@@ -181,8 +178,10 @@ body,
   padding-right: 20px;
 }
 .about .span3 {
+  border-left: 1px dotted #DDD;
   padding-left: 20px;
-  margin: 0;
+  width: 228px;
+  margin-left: -1px;
 }
 .about .span3 .mid-paragraph {
   margin: 15px 0;
@@ -206,6 +205,12 @@ body,
 .attribution p.lod2-attribution {
   margin-left: 10px;
   margin-bottom: 20px;
+}
+span.dataset-label {
+  font-weight: bold;
+}
+div.showmap-text {
+  margin: 5px 8px;
 }
 .ie9 .masthead,
 .ie8 .masthead,

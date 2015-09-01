@@ -1,0 +1,7 @@
+{% ckan_extends %}
+
+{% block secondary_content %}
+  {{ super() }}
+  {% set groupname = request.path.split('/')[-1].split('?')[0] %}
+  {{ h.snippet('showmap/snippets/showmap.html', groupname=groupname, name='showmap') }}
+{% endblock %}
