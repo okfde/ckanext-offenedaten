@@ -6,8 +6,6 @@ from odm.catalogs.portals.braunschweig import BraunschweigReader
 from odm.catalogs.portals.bochum import BochumReader
 from odm.catalogs.portals.diepholz import DiepholzReader
 from odm.catalogs.portals.bremen import BremenReader
-from odm.catalogs.portals.moers import MoersReader
-from odm.catalogs.portals.rostock import RostockReader
 from odm.catalogs.portals.rheinland_pfalz import RlpReader
 from odm.catalogs.portals.ulm import UlmReader
 from odm.catalogs.portals.ckanApiV3 import CkanReader
@@ -28,9 +26,18 @@ bochum             = def_harvester(BochumReader())
 braunschweig       = def_harvester(BraunschweigReader())
 bremen             = def_harvester(BremenReader())
 diepholz           = def_harvester(DiepholzReader())
-moers              = def_harvester(MoersReader())
+moers              = def_harvester(CkanReader('moers'))
+krefeld            = def_harvester(CkanReader('krefeld'))
+stadtbottrop      = def_harvester(CkanReader('stadt-bottrop')) 
+stadtgeldern      = def_harvester(CkanReader('stadt-geldern'))
+stadtkleve        = def_harvester(CkanReader('stadt-kleve'))
+stadtwesel        = def_harvester(CkanReader('stadt-wesel'))
+kreiswesel        = def_harvester(CkanReader('kreis-wesel'))
+kreisviersen      = def_harvester(CkanReader('kreis-viersen')) 
+kreiskleve        = def_harvester(CkanReader('kreis-kleve'))
+gemeindewachtendonk = def_harvester(CkanReader('gemeinde-wachtendonk'))
 rheinland_pfalz    = def_harvester(RlpReader())
-rostock            = def_harvester(RostockReader())
+rostock            = def_harvester(CkanReader('rostock'))
 ulm                = def_harvester(UlmReader())
 koeln              = def_harvester(CkanReader('koeln'))
 bonn               = def_harvester(CkanReader('bonn'))

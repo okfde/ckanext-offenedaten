@@ -73,7 +73,7 @@ class OffeneDatenCustomizations(plugins.SingletonPlugin):
         new_facets_dict = OrderedDict()
         new_facets_dict['openstatus'] = toolkit._('Offenheit')
         new_facets_dict['metadata_source_type'] = toolkit._('Source')
-        del facets_dict['tags']
+        #del facets_dict['tags']
         for key in facets_dict:
             new_facets_dict[key] = facets_dict[key]
         return new_facets_dict

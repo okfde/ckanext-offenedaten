@@ -36,6 +36,15 @@ setuptools.setup(
     bremen_harvester=ckanext.offenedaten.harvesters.odm_harvesters:bremen
     diepholz_harvester=ckanext.offenedaten.harvesters.odm_harvesters:diepholz
     moers_harvester=ckanext.offenedaten.harvesters.odm_harvesters:moers
+    krefeld_harvester=ckanext.offenedaten.harvesters.odm_harvesters:krefeld
+    stadtbottrop_harvester=ckanext.offenedaten.harvesters.odm_harvesters:stadtbottrop
+    stadtgeldern_harvester=ckanext.offenedaten.harvesters.odm_harvesters:stadtgeldern
+    stadtkleve_harvester=ckanext.offenedaten.harvesters.odm_harvesters:stadtkleve
+    stadtwesel_harvester=ckanext.offenedaten.harvesters.odm_harvesters:stadtwesel
+    kreiswesel_harvester=ckanext.offenedaten.harvesters.odm_harvesters:kreiswesel
+    kreisviersen_harvester=ckanext.offenedaten.harvesters.odm_harvesters:kreisviersen
+    kreiskleve_harvester=ckanext.offenedaten.harvesters.odm_harvesters:kreiskleve
+    gemeindewachtendonk_harvester=ckanext.offenedaten.harvesters.odm_harvesters:gemeindewachtendonk
     rostock_harvester=ckanext.offenedaten.harvesters.odm_harvesters:rostock
     rlp_harvester=ckanext.offenedaten.harvesters.odm_harvesters:rheinland_pfalz
     ulm_harvester=ckanext.offenedaten.harvesters.odm_harvesters:ulm

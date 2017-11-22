@@ -1,5 +1,5 @@
 gdata>=2.0.14
--e git+https://github.com/okfn/ckanext-rdf#egg=ckanext-rdf
+#-e git+https://github.com/okfn/ckanext-rdf#egg=ckanext-rdf
 -e git+https://github.com/okfn/datautil#egg=datautil
--e git+https://github.com/okfn/ckanext-disqus#egg=disqus
--e git+https://github.com/SebastianBerchtold/odm-catalogreaders#egg=odm-catalogreaders
+#-e git+https://github.com/okfn/ckanext-disqus#egg=disqus
+-e git+https://github.com/mattfullerton/odm-catalogreaders#egg=odm-catalogreaders

@@ -1,0 +1,27 @@
+{% ckan_extends %}
+
+  {% block custom_fields %}
+    {% for extra in data.extras %}
+      {% set prefix = 'extras__%d__' % loop.index0 %}
+      {{ form.custom(
+        names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
+        id='field-extras-%d' % loop.index,
+        label=_('Custom Field'),
+        values=(extra.key, extra.value, extra.deleted),
+        error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
+      ) }}
+    {% endfor %}
+
+    {# Add a max if 5 empty columns #}
+    {% for extra in range(data.extras|count, 5) %}
+      {% set index = (loop.index0 + data.extras|count) %}
+      {% set prefix = 'extras__%d__' % index %}
+      {{ form.custom(
+        names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
+        id='field-extras-%d' % index,
+        label=_('Custom Field'),
+        values=(extra.key, extra.value, extra.deleted),
+        error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
+      ) }}
+    {% endfor %}
+  {% endblock %}
