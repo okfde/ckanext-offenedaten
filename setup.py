@@ -55,5 +55,6 @@ setuptools.setup(
     berlin_harvester=ckanext.offenedaten.harvesters.odm_harvesters:berlin
     bonn_harvester=ckanext.offenedaten.harvesters.odm_harvesters:bonn
     muenchen_harvester=ckanext.offenedaten.harvesters.odm_harvesters:muenchen
+    meerbusch_harvester=ckanext.offenedaten.harvesters.odm_harvesters:meerbusch
     """,
 )
