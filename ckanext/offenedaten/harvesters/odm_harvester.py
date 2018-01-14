@@ -112,13 +112,8 @@ class OdmHarvester(HarvesterBase):
             # d['name'] = str(uuid.uuid4()) #Must be unique, our titles are not
             d['name'] = self._gen_new_name(d['title'])
             d['notes'] = rec['description']
-            d['extras'] = []
-            d['extras'].append({'key': 'temporalextent', 'value': rec['temporalextent']})
-            d['extras'].append({'key': 'metadata_source_type', 'value': 'Data Catalog'})  # hard coded
-            d['extras'].append({'key': 'metadata_source_portal', 'value': rec['originating_portal']})
-            d['extras'].append({'key': 'original_metadata_json', 'value': rec['metadata']})
-            d['extras'].append({'key': 'original_metadata_xml', 'value': rec['metadata_xml']})
-            d['extras'].append({'key': 'openstatus', 'value': self._open_to_string(rec['open'])})
+            metadata = rec['metadata']
+            d['extras'] = { 'metadata_modified': metadata['metadata_modified'], 'metadata_created': metadata['metadata_created'], 'temporalextent': rec['temporalextent'], 'metadata_source_portal': rec['originating_portal'] }
             d['license_id'] = rec['licenseshort']
             d['isopen'] = rec['open']
             d['maintainer'] = rec['publisher']
@@ -133,6 +128,7 @@ class OdmHarvester(HarvesterBase):
             d['resources'] = []
             for url in rurls:
                 d['resources'].append({'url': url})
+            log.debug('In Import state with object', d)
             return self._create_or_update_package(d, harvest_object)
             # return False # self._create_or_update_package(d, harvest_object)
 

@@ -1,4 +1,6 @@
 gdata>=2.0.14
+ndg-httpsclient
+pyopenssl
 #-e git+https://github.com/okfn/ckanext-rdf#egg=ckanext-rdf
 -e git+https://github.com/okfn/datautil#egg=datautil
 #-e git+https://github.com/okfn/ckanext-disqus#egg=disqus
