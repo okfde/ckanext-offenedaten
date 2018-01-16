@@ -10,8 +10,8 @@ import ckan.plugins as p
 import ckan.lib.helpers as h
 
 from ckan.lib.helpers import json
-from ckan.lib.base import BaseController, c, g, request, \
-                          response, render, config, abort, redirect
+from ckan.lib.base import BaseController, c, request, \
+                          response, render, config, abort
                           
 from ckan import model
 from ckan.model import Session, PackageExtra, Package, Group
@@ -133,7 +133,7 @@ class MapController(BaseController):
                     'license_id': _('Licenses'),
                     }
 
-            for facet in g.facets:
+            for facet in h.facets():
                 if facet in default_facet_titles:
                     facets[facet] = default_facet_titles[facet]
                 else:
@@ -187,10 +187,6 @@ class MapController(BaseController):
             c.query_error = True
             c.facets = {}
             c.search_facets = {}
-
-        maintain.deprecate_context_item(
-          'facets',
-          'Use `c.search_facets` instead.')
 
         self._setup_template_variables(context, {},
                                        package_type='dataset')
