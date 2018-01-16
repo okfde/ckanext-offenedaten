@@ -112,8 +112,11 @@ class OdmHarvester(HarvesterBase):
             # d['name'] = str(uuid.uuid4()) #Must be unique, our titles are not
             d['name'] = self._gen_new_name(d['title'])
             d['notes'] = rec['description']
-            metadata = rec['metadata']
-            d['extras'] = { 'metadata_modified': metadata['metadata_modified'], 'metadata_created': metadata['metadata_created'], 'temporalextent': rec['temporalextent'], 'metadata_source_portal': rec['originating_portal'] }
+            metadata = rec['original_metadata']
+            d['extras'] = { 'temporalextent': rec['temporalextent'], 'metadata_source_portal': rec['originating_portal'] }
+            if 'metadata_modified' in metadata:
+                d['extras']['metadata_modified'] =  metadata['metadata_modified']
+                d['extras']['metadata_created']  = metadata['metadata_created']
             d['license_id'] = rec['licenseshort']
             d['isopen'] = rec['open']
             d['maintainer'] = rec['publisher']
